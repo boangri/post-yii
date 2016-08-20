@@ -45,7 +45,10 @@ $config = [
             'showScriptName' => false,
             'rules' => [
             //    'test' => 'post/test',
-                '<action>' => 'post/<action>',
+            //    '<action>' => 'post/<action>',
+                'post/<id:\d+>' => 'post/view',
+                'page/<page:\d+>' => 'post/index',
+                '/' => 'post/index',
             ],
         ],
     ],

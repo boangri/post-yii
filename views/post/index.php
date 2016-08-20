@@ -1,13 +1,20 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: boris_2
- * Date: 19.08.2016
- * Time: 23:07
- */
-?>
-<code><?=__FILE__?></code>
-<br />
-<?=$message?>
-<br />
-<?=$name?>
+<?php if (!empty($posts)) : ?>
+    <div>
+        <?php foreach ($posts as $post) : ?>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <a href="<?= yii\helpers\Url::to(['post/view', 'id' => $post->id])?>"><?=$post->title?></a>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <?=$post->excerpt?>
+                </div>
+            </div>
+        <?php endforeach; ?>
+        <?= \yii\widgets\LinkPager::widget([
+            'pagination' => $pages,
+        ])?>
+    </div>
+<?php endif;
+
