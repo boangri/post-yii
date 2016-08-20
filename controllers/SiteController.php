@@ -2,12 +2,8 @@
 
 namespace app\controllers;
 
-//use Yii;
-//use yii\filters\AccessControl;
 use yii\web\Controller;
-//use yii\filters\VerbFilter;
-//use app\models\LoginForm;
-//use app\models\ContactForm;
+use app\models\Portfolio;
 
 class SiteController extends Controller
 {
@@ -23,7 +19,8 @@ class SiteController extends Controller
 
     public function actionPortfolio()
     {
-        return $this->render('portfolio');
+        $data = Portfolio::getData();
+        return $this->render('portfolio', ['data' => $data]);
     }
 
     public function actionServices()
@@ -33,6 +30,6 @@ class SiteController extends Controller
 
     public function actionP404()
     {
-        return $this->render('p404');
+        return $this->render('404');
     }
 }
