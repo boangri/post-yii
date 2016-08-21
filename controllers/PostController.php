@@ -10,6 +10,7 @@ namespace app\controllers;
 
 use app\models\Post;
 use yii\data\Pagination;
+use yii\web\HttpException;
 
 class PostController extends AppController
 {
@@ -29,8 +30,11 @@ class PostController extends AppController
         ]);
     }
 
-    public function actionTest()
+    public function actionView()
     {
-        return 'Hello world';
+        $id = \Yii::$app->request->get('id');
+        $post = Post::findOne($id);
+        if (empty($post)) throw new HttpException('404', 'Такой страницы нет...');
+        return $this->render('view', compact('id', 'post'));
     }
 }
