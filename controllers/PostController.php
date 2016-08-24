@@ -11,14 +11,16 @@ namespace app\controllers;
 
 class PostController extends AppController
 {
+    public $layout = 'basic';
+
     public function actionIndex($name = 'guest')
     {
         $message = "Привет мир";
         return $this->render('index', ['message' =>$message, 'name' => $name]);
     }
 
-    public function actionTest()
+    public function actionShow()
     {
-        return 'Hello world';
+        return $this->render('show', compact('post'));
     }
 }

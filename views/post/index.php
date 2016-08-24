@@ -9,5 +9,3 @@
 <code><?=__FILE__?></code>
 <br />
 <?=$message?>
-<br />
-<?=$name?>
