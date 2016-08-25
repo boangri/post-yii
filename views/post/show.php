@@ -1,18 +1,28 @@
-<h1>Article</h1>
+<?php 
+$this->beginBlock('block1');
+?>
+<h3>Some info</h3>
+
+<?php
+$this->endBlock();
+?>
+
+<h1><?=$this->title?></h1>
 
 <button id="btn" class="btn btn-success">Click me!!!</button>
 
 
 
-<?php //$this->registerJsFile('@web/js/scripts.js') ?>
-
 <?php
 $js = <<<JS
     $('#btn').on('click', function(){
         $.ajax({
-            url: 'index.php?r=post/index',
-            data: {test: '123'},
-            type: 'GET',
+            url: 'index.php?r=post/ajax',
+            data: {
+                test: '123',
+                str: 'qwerty'
+            },
+            type: 'POST',
             success: function(res){
                 console.log(res);
             },
@@ -24,6 +34,6 @@ $js = <<<JS
 
 JS;
 
-$this->registerJS($js);
+$this->registerJs($js);
 
 ?>
