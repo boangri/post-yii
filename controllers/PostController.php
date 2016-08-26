@@ -7,6 +7,8 @@
  */
 
 namespace app\controllers;
+
+use app\models\TestForm;
 use Yii;
 use yii\helpers\Html;
 
@@ -16,8 +18,9 @@ class PostController extends AppController
 
     public function actionIndex($name = 'guest')
     {
-
-        return $this->render('index', ['message' =>$message, 'name' => $name]);
+        $model = new TestForm();
+        $this->view->title = 'Test Form';
+        return $this->render('test', compact('model'));
     }
 
     public function actionShow()
