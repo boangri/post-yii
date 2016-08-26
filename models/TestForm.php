@@ -16,4 +16,19 @@ class TestForm extends Model
     public $email;
     public $text;
     
+    public function attributeLabels(){
+        return [
+            'name' => 'Имя',
+            'email' => 'Email',
+            'text' => 'Ваше сообщение',
+        ];
+    }
+
+    public function rules () {
+        return [
+            [['name', 'email'], 'required', ],
+            ['email', 'email'],
+            ['name', 'string', 'min' => 2, 'max' => 4],
+        ];
+    }
 }
