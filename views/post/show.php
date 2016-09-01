@@ -11,7 +11,9 @@ $this->endBlock();
 
 <button id="btn" class="btn btn-success">Click me!!!</button>
 
-
+<pre>
+    <?php print_r($cats); ?>
+</pre>
 
 <?php
 $js = <<<JS

@@ -8,6 +8,7 @@
 
 namespace app\controllers;
 
+use app\models\Category;
 use app\models\TestForm;
 use Yii;
 use yii\helpers\Html;
@@ -44,7 +45,9 @@ class PostController extends AppController
             'name' => 'description',
             'content' => 'описание страницы'
         ]);
-        return $this->render('show', compact('post'));
+        $cats = Category::find()->all();
+
+        return $this->render('show', compact('cats'));
     }
 
     public function actionAjax()
