@@ -19,6 +19,14 @@ class PostController extends AppController
 
     public function actionIndex($name = 'guest')
     {
+        $post = TestForm::findOne(1);
+        $post->email = 'xinu@yandex.ru';
+        $post->save();
+
+        $post = TestForm::findOne(2);
+        $post->delete();
+
+        return 'Updated';
         $model = new TestForm();
 
         if ($model->load(Yii::$app->request->post()) ) {
