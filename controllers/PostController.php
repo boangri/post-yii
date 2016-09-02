@@ -45,7 +45,8 @@ class PostController extends AppController
             'name' => 'description',
             'content' => 'описание страницы'
         ]);
-        $cats = Category::find()->all();
+        $cats = Category::find()->with('products')->all();
+        //$cats = Category::find()->where('id = 694')->with('products')->all();
 
         return $this->render('show', compact('cats'));
     }

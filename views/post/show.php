@@ -12,8 +12,24 @@ $this->endBlock();
 <button id="btn" class="btn btn-success">Click me!!!</button>
 
 <pre>
-    <?php print_r($cats); ?>
+    <?php //echo count($cats[0]->products) ?>
+    <?php //print_r($cats); ?>
 </pre>
+
+<ul>
+    <?php foreach ($cats as $cat): ?>
+        <li><?=$cat->title?>
+            <ul>
+            <?php foreach ($cat->products as $product): ?>
+                <li><?=$product->title?></li>
+            <?php endforeach; ?>
+            </ul>
+        </li>
+    <?php endforeach; ?>
+</ul>
+
+
+
 
 <?php
 $js = <<<JS
