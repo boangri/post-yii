@@ -8,14 +8,19 @@
 
 namespace app\models;
 
-use yii\base\Model;
 
-class TestForm extends Model
+use yii\db\ActiveRecord;
+
+class TestForm extends ActiveRecord
 {
-    public $name;
-    public $email;
-    public $text;
-    
+//    public $name;
+//    public $email;
+//    public $text;
+    public static function tableName()
+    {
+        return 'posts';
+    }
+
     public function attributeLabels(){
         return [
             'name' => 'Имя',
@@ -26,9 +31,8 @@ class TestForm extends Model
 
     public function rules () {
         return [
-            [['name', 'email'], 'required', ],
+            [['name', 'text'], 'required', ],
             ['email', 'email'],
-            ['name', 'string', 'min' => 2, 'max' => 4],
         ];
     }
 }
