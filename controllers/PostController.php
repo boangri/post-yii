@@ -23,10 +23,10 @@ class PostController extends AppController
         $post->email = 'xinu@yandex.ru';
         $post->save();
 
-        $post = TestForm::findOne(2);
-        $post->delete();
+        //$post = TestForm::findOne(2);
+        //$post->delete();
 
-        return 'Updated';
+        //return 'Updated';
         $model = new TestForm();
 
         if ($model->load(Yii::$app->request->post()) ) {

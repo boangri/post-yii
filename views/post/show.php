@@ -1,5 +1,8 @@
 <?php 
 $this->beginBlock('block1');
+
+use app\components\MyWidget;
+
 ?>
 <h3>Some info</h3>
 
@@ -8,6 +11,8 @@ $this->endBlock();
 ?>
 
 <h1><?=$this->title?></h1>
+
+<?php echo MyWidget::widget(['name' => 'Boris']); ?>
 
 <button id="btn" class="btn btn-success">Click me!!!</button>
 
