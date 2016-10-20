@@ -4,6 +4,8 @@ namespace app\controllers;
 
 use yii\web\Controller;
 use app\models\Portfolio;
+use app\models\LoginForm;
+use Yii;
 
 class SiteController extends Controller
 {
@@ -33,17 +35,38 @@ class SiteController extends Controller
         return $this->render('404');
     }
 
-    public function actionError()
+//    public function actionError()
+//    {
+//        return $this->render('error', [
+//            'name' => 'Ошибка!!!',
+//            'message' => 'Произошла ошибка!',
+//        ]);
+//    }
+
+//    public function actionLogin()
+//    {
+//        $data['access_status'] = 'access_granted';
+//        return $this->render('login', ['data' => $data]);
+//    }
+    public function actionLogin()
     {
-        return $this->render('error', [
-            'name' => 'Ошибка!!!',
-            'message' => 'Произошла ошибка!',
+        if (!\Yii::$app->user->isGuest) {
+            return $this->goHome();
+        }
+
+        $model = new LoginForm();
+        if ($model->load(Yii::$app->request->post()) && $model->login()) {
+            return $this->goBack();
+        }
+        return $this->render('login2', [
+            'model' => $model,
         ]);
     }
 
-    public function actionLogin()
+    public function actionLogout()
     {
-        $data['access_status'] = 'access_granted';
-        return $this->render('login', ['data' => $data]);
+        Yii::$app->user->logout();
+
+        return $this->goHome();
     }
 }
