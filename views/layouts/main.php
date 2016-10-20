@@ -50,7 +50,12 @@ Modified by VitalySwipe
 						<li class="first active"><a href="/">Главная</a></li>
 						<li><a href="/services">Услуги</a></li>
 						<li><a href="/portfolio">Портфолио</a></li>
-						<li class="last"><a href="/contacts">Контакты</a></li>
+						<li><a href="/contacts">Контакты</a></li>
+					<?php if (isset($_SESSION["login_status"]) && $_SESSION["login_status"] == "access_granted") : ?>
+						<li class="last"><a href="/admin/logout">Выход (<?= $_SESSION["user"] ?>)</a></li>
+					<?php else: ?>
+						<li class="last"><a href="/login">Вход</a></li>
+					<?php endif; ?>
 					</ul>
 					<br class="clearfix" />
 				</div>
@@ -84,7 +89,12 @@ Modified by VitalySwipe
 							<li class="first "><a href="/">Главная</a></li>
 							<li><a href="/services">Услуги</a></li>
 							<li><a href="/portfolio">Портфолио</a></li>
-							<li class="last"><a href="/contacts">Контакты</a></li>
+							<li><a href="/contacts">Контакты</a></li>
+						<?php if (isset($_SESSION["login_status"]) && $_SESSION["login_status"] == "access_granted") : ?>
+							<li class="last"><a href="/admin/logout">Выход (<?= $_SESSION["user"] ?>)</a></li>
+						<?php else: ?>
+							<li class="last"><a href="/login">Вход</a></li>
+						<?php endif; ?>
 						</ul>
 					</div>
 				</div>

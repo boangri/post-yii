@@ -32,4 +32,18 @@ class SiteController extends Controller
     {
         return $this->render('404');
     }
+
+    public function actionError()
+    {
+        return $this->render('error', [
+            'name' => 'Ошибка!!!',
+            'message' => 'Произошла ошибка!',
+        ]);
+    }
+
+    public function actionLogin()
+    {
+        $data['access_status'] = 'access_granted';
+        return $this->render('login', ['data' => $data]);
+    }
 }
