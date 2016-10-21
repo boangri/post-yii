@@ -53,11 +53,10 @@ Modified by VitalySwipe
 						<li><a href="<?= \yii\helpers\Url::to(['/contacts'])?>">Контакты</a></li>
 					<?php if(!Yii::$app->user->isGuest): ?>
 						<li><a href="<?= \yii\helpers\Url::to(['/site/logout'])?>">
-								<?php echo Yii::$app->user->identity->username ?> (Выход)</a></li>
+								Выход (<?php echo Yii::$app->user->identity->username ?>)</a></li>
 					<?php else: ?>
 						<li class="last"><a href="<?= \yii\helpers\Url::to(['/admin/index'])?>">Вход</a></li>
 					<?php endif; ?>
-
 					</ul>
 					<br class="clearfix" />
 				</div>
@@ -87,17 +86,17 @@ Modified by VitalySwipe
 					</div>
 					<div class="side-box">
 						<h3>Основное меню</h3>
-						<ul class="list">
+						<ul>
 							<li class="first active"><a href="<?= \yii\helpers\Url::to(['/'])?>">Главная</a></li>
 							<li><a href="<?= \yii\helpers\Url::to(['/services'])?>">Услуги</a></li>
 							<li><a href="<?= \yii\helpers\Url::to(['/portfolio'])?>">Портфолио</a></li>
 							<li><a href="<?= \yii\helpers\Url::to(['/contacts'])?>">Контакты</a></li>
-						<?php if(!Yii::$app->user->isGuest): ?>
-							<li><a href="<?= \yii\helpers\Url::to(['/site/logout'])?>">
-									<?php //echo Yii::$app->user->username?> (Выход)</a></li>
-						<?php else: ?>
-							<li class="last"><a href="<?= \yii\helpers\Url::to(['/admin/index'])?>">Вход</a></li>
-						<?php endif; ?>
+							<?php if(!Yii::$app->user->isGuest): ?>
+								<li><a href="<?= \yii\helpers\Url::to(['/site/logout'])?>">
+										Выход (<?php echo Yii::$app->user->identity->username ?>)</a></li>
+							<?php else: ?>
+								<li class="last"><a href="<?= \yii\helpers\Url::to(['/admin/index'])?>">Вход</a></li>
+							<?php endif; ?>
 						</ul>
 					</div>
 				</div>
