@@ -1,28 +1,36 @@
-<h1>Страница авторизации</h1>
-<p>
-<form action="" method="post">
-<table class="login">
-	<tr>
-		<th colspan="2">Авторизация</th>
-	</tr>
-	<tr>
-		<td>Логин</td>
-		<td><input type="text" name="username"></td>
-	</tr>
-	<tr>
-		<td>Пароль</td>
-		<td><input type="password" name="password"></td>
-	</tr>
-	<th colspan="2" style="text-align: right">
-	<input type="submit" value="Войти" name="btn"
-	style="width: 150px; height: 30px;"></th>
-</table>
-</form>
-</p>
+<?php
+use yii\helpers\Html;
+use yii\bootstrap\ActiveForm;
 
-<?php //extract($data); ?>
-<?php //if($login_status=="access_granted") { ?>
-<p style="color:green">Авторизация прошла успешно.</p>
-<?php //} elseif($login_status=="access_denied") { ?>
-<p style="color:red">Логин и/или пароль введены неверно.</p>
-<?php //} ?>
+$this->title = 'Страница авторизации';
+?>
+
+<h1><?= $this->title ?></h1>
+<div>
+	<?php $form = ActiveForm::begin([
+		'id' => 'login-form',
+		'options' => ['class' => 'form-horizontal'],
+		'fieldConfig' => [
+			'template' => "<tr></tr><td>{label}</td><td>{input}<div class=\"col-lg-8\">{error}</div></td></tr>",
+			'labelOptions' => ['class' => 'col-lg-1 control-label'],
+		],
+	]); ?>
+
+	<table class="login">
+		<tr>
+			<th colspan="2">Авторизация</th>
+		</tr>
+		<?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
+		<?= $form->field($model, 'password')->passwordInput() ?>
+		<?= $form->field($model, 'rememberMe')->checkbox([
+			'template' => "<tr></tr><td>{input}</td><td>{label}<div class=\"col-lg-8\">{error}</div></td></tr>",
+		]) ?>
+		<tr>
+			<th colspan="2" style="text-align: center">
+				<?= Html::submitButton('Войти', ['name' => 'btn', 'style' => "width: 150px; height: 30px;"]) ?>
+			</th>
+		</tr>
+	</table>
+
+<?php ActiveForm::end(); ?>
+</div>
