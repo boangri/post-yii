@@ -52,8 +52,8 @@ Modified by VitalySwipe
 						<li><a href="<?= \yii\helpers\Url::to(['/portfolio'])?>">Портфолио</a></li>
 						<li><a href="<?= \yii\helpers\Url::to(['/contacts'])?>">Контакты</a></li>
 					<?php if(!Yii::$app->user->isGuest): ?>
-						<li><a href="<?= \yii\helpers\Url::to(['/site/logout'])?>"><i class="fa fa-user"></i>
-								<?php // Yii::$app->user->identity['username']?> (Выход)</a></li>
+						<li><a href="<?= \yii\helpers\Url::to(['/site/logout'])?>">
+								<?php echo Yii::$app->user->identity->username ?> (Выход)</a></li>
 					<?php else: ?>
 						<li class="last"><a href="<?= \yii\helpers\Url::to(['/admin/index'])?>">Вход</a></li>
 					<?php endif; ?>
@@ -93,8 +93,8 @@ Modified by VitalySwipe
 							<li><a href="<?= \yii\helpers\Url::to(['/portfolio'])?>">Портфолио</a></li>
 							<li><a href="<?= \yii\helpers\Url::to(['/contacts'])?>">Контакты</a></li>
 						<?php if(!Yii::$app->user->isGuest): ?>
-							<li><a href="<?= \yii\helpers\Url::to(['/site/logout'])?>"><i class="fa fa-user"></i>
-									<?php // Yii::$app->user->identity['username']?> (Выход)</a></li>
+							<li><a href="<?= \yii\helpers\Url::to(['/site/logout'])?>">
+									<?php //echo Yii::$app->user->username?> (Выход)</a></li>
 						<?php else: ?>
 							<li class="last"><a href="<?= \yii\helpers\Url::to(['/admin/index'])?>">Вход</a></li>
 						<?php endif; ?>
@@ -104,13 +104,6 @@ Modified by VitalySwipe
 				<div id="content">
 					<div class="box">
 						<?php echo $content ?>
-						<!--
-						<h2>Welcome to Accumen</h2>
-						<img class="alignleft" src="images/pic01.jpg" width="200" height="180" alt="" />
-						<p>
-							This is <strong>Accumen</strong>, a free, fully standards-compliant CSS template by <a href="http://www.freecsstemplates.org/">Free CSS Templates</a>. The images used in this template are from <a href="http://fotogrph.com/">Fotogrph</a>. This free template is released under a <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attributions 3.0</a> license, so you are pretty much free to do whatever you want with it (even use it commercially) provided you keep the footer credits intact. Aside from that, have fun with it :)
-						</p>
-						-->
 					</div>
 					<br class="clearfix" />
 				</div>
