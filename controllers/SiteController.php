@@ -21,7 +21,8 @@ class SiteController extends Controller
 
     public function actionPortfolio()
     {
-        $data = Portfolio::getData();
+        //$data = Portfolio::getData();
+        $data = Portfolio::find()->all();
         return $this->render('portfolio', ['data' => $data]);
     }
 
